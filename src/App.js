@@ -9,14 +9,7 @@ export default function App() {
   return (
     <div className="App">
       <SearchContainer />
-      <WeatherContainer
-        city="Tampa"
-        temperature={73}
-        humidity={48}
-        wind={6}
-        time="1:41 PM"
-        description="Cloudy"
-      />
+      <WeatherContainer defaultCity="Tampa" />
       <br />
       <Footer />
     </div>

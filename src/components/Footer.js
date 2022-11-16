@@ -11,7 +11,11 @@ let linkedIn = (
 );
 
 let getHub = (
-  <a href="https://github.com/J2N8/weather-react" target="_blank" className="github">
+  <a
+    href="https://github.com/J2N8/weather-react"
+    target="_blank"
+    className="github"
+  >
     open-sourced on GitHub
   </a>
 );
