@@ -1,17 +1,24 @@
-import Weather from './Weather';
-import './App.css';
+import SearchContainer from "./components/SearchContainer";
+import WeatherContainer from "./components/WeatherContainer";
+import Footer from "./components/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+import "./App.css";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>
-          Hello World
-        </h1>
-        <Weather />
-      </header>
+      <SearchContainer />
+      <WeatherContainer
+        city="Tampa"
+        temperature={73}
+        humidity={48}
+        wind={6}
+        time="1:41 PM"
+        description="Cloudy"
+      />
+      <br />
+      <Footer />
     </div>
   );
 }
-
-export default App;
