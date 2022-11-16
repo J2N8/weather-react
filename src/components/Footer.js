@@ -3,7 +3,7 @@ import React from "react";
 let linkedIn = (
   <a
     href="https://www.linkedin.com/in/jasmine-poole-421b101b7/"
-    target=""
+    target="_blank"
     className="linkedIn"
   >
     Jasmine Poole
@@ -11,7 +11,7 @@ let linkedIn = (
 );
 
 let getHub = (
-  <a href="https://github.com/J2N8/weather-react" target="" className="github">
+  <a href="https://github.com/J2N8/weather-react" target="_blank" className="github">
     open-sourced on GitHub
   </a>
 );
@@ -19,7 +19,7 @@ let getHub = (
 let Netlify = (
   <a
     href="https://weatherapp2-reactjs.netlify.app/"
-    target=""
+    target="_blank"
     className="netlify"
   >
     hosted on Netlify
