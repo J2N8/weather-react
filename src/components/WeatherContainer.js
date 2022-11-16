@@ -1,43 +1,27 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import FormattedDate from "./FormattedDate";
 
 export default function WeatherContainer(props) {
-  const [weatherData, setWeatherData] = useState({ready: false});
-  
-  function handleResponse(response){
-    setWeatherData({
-      ready: true,
-      city: response.data.name,
-      date : new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
-      iconUrl: `http://openweathermap.org/img/wn/04d@2x.png`,
-      temperature: response.data.main.temp,
-      wind: response.data.wind.speed,
-    });
-  }
-  if (weatherData.ready) {
     return (
       <div className="weatherContentContainer">
         <div className="currentCityContainer">
           <div className="Row">
             <div className="cityWeather Col">
               <span className="cityName" id="City">
-                {weatherData.city}
+                {props.data.city}
               </span>
               <br />
               <span className="currentTime" id="DateLine">
-                <FormattedDate date={weatherData.date} />
+                <FormattedDate date={props.data.date} />
               </span>
               <br />
               <span className="weatherDescription" id="Description">
-                {weatherData.description}
+                {props.data.description}
               </span>
               <br />
               <div className="weatherTemperature">
                 <span className="currentTemp" id="mainTemp">
-                  {Math.round(weatherData.temperature)}
+                  {Math.round(props.data.temperature)}
                 </span>
                 <span className="Units">
                   <a
@@ -56,18 +40,22 @@ export default function WeatherContainer(props) {
               </div>
             </div>
             <div className="currentWeatherIcon">
-              <img src={weatherData.iconUrl} id="icon" alt={weatherData.description} />
+              <img
+                src={props.data.iconUrl}
+                id="icon"
+                alt={props.data.description}
+              />
             </div>
             <div className="currentWeatherDetails">
               <ul>
                 <div className="Humidity">
                   <li className="">
-                    Humidity: <span id="Humidity">{weatherData.humidity}</span>%
+                    Humidity: <span id="Humidity">{props.data.humidity}</span>%
                   </li>
                 </div>
                 <div className="cWind">
                   <li>
-                    Wind: <span id="Wind">{weatherData.wind}</span> km/h
+                    Wind: <span id="Wind">{props.data.wind}</span> km/h
                   </li>
                 </div>
               </ul>
@@ -77,12 +65,4 @@ export default function WeatherContainer(props) {
         <div className="cityNextTempContainer" id="Forecast"></div>
       </div>
     );
-  } 
-  else 
-  {
-      const apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
-      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
-      axios.get(apiUrl).then(handleResponse);
-      return "Loading...";
-  }
 }
