@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WeatherContainer from "./WeatherContainer";
 import axios from "axios";
 
 export default function SearchContainer(props) {
@@ -28,7 +29,7 @@ export default function SearchContainer(props) {
   }
 
   function search() {
-    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    const apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
@@ -38,7 +39,7 @@ export default function SearchContainer(props) {
       <div className="searchContainer">
         <form onSubmit={handleSubmit} id="searchForm">
           <input
-            type="search"
+            type="text"
             className="inputCity col-sm-8"
             autoComplete="off"
             placeholder="Search Your City"
@@ -62,6 +63,7 @@ export default function SearchContainer(props) {
             </button>
           </span>
         </form>
+        <WeatherContainer data={weatherData} />
       </div>
     );
   } else {
