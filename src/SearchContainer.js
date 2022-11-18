@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WeatherContainer from "./WeatherContainer";
 import axios from "axios";
+import "./App.css";
 
 export default function SearchContainer(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -13,7 +14,7 @@ export default function SearchContainer(props) {
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      iconUrl: `http://openweathermap.org/img/wn/04d@2x.png`,
+      iconUrl: response.data.weather[0].icon,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
     });
@@ -39,7 +40,7 @@ export default function SearchContainer(props) {
       <div className="searchContainer">
         <form onSubmit={handleSubmit} id="searchForm">
           <input
-            type="text"
+            type="search"
             className="inputCity col-sm-8"
             autoComplete="off"
             placeholder="Search Your City"

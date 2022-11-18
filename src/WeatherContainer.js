@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import "./App.css";
 
 export default function WeatherContainer(props) {
     return (
@@ -24,18 +25,6 @@ export default function WeatherContainer(props) {
                   {Math.round(props.data.temperature)}
                 </span>
                 <span className="Units">
-                  <a
-                    href="/"
-                    onClick="{showFahrenheit}"
-                    id="fahrenheitLink"
-                    className="linkActive"
-                  >
-                    °F
-                  </a>
-                  |
-                  <a href="/" onClick="{showCelsius}" id="celsiusLink">
-                    °C
-                  </a>
                 </span>
               </div>
             </div>
