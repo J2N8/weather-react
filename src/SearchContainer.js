@@ -64,6 +64,7 @@ export default function SearchContainer(props) {
             </button>
           </span>
         </form>
+        <br/ >
         <WeatherContainer data={weatherData} />
       </div>
     );

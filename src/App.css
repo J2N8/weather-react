@@ -163,3 +163,8 @@ body {
 li {
   list-style: none;
 }
+
+footer {
+  padding-top: 400px;
+  text-align: center;
+}
