@@ -38,7 +38,7 @@ export default function SearchContainer(props) {
       <div className="searchContainer">
         <form onSubmit={handleSubmit} id="searchForm">
           <input
-            type="text"
+            type="search"
             className="inputCity col-sm-8"
             autoComplete="off"
             placeholder="Search Your City"
