@@ -42,9 +42,11 @@
 }
 
 .currentWeatherIcon {
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 70%;
 }
 
 .Days {

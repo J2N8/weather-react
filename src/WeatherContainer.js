@@ -28,7 +28,7 @@ export default function WeatherContainer(props) {
               <span className="Units"></span>
             </div>
           </div>
-          <div className="currentWeatherIcon" id="icon">
+          <div className="currentWeatherIcon" >
             <WeatherIcon code={props.data.icon} alt={props.data.description} />
           </div>
           <div className="currentWeatherDetails">

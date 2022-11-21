@@ -14,7 +14,7 @@ export default function SearchContainer(props) {
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      iconUrl: response.data.weather[0].icon,
+      icon: response.data.weather[0].icon,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
     });
