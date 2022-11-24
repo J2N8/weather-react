@@ -35,12 +35,7 @@ function search() {
   function updateCity(event) {
     setCity(event.target.value);
   }
-  
-  function getCurrentLocation(event) {
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(searchLocation);
-  }  
-  
+
   function searchLocation(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
@@ -48,6 +43,11 @@ function search() {
     let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
     let apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
+  }
+
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchLocation);
   }
 
   if (weatherData.ready) {
