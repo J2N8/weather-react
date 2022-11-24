@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import WeatherContainer from "./WeatherContainer";
-import WeatherForecast from "./WeatherForecast"
+import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -21,6 +21,11 @@ export default function SearchContainer(props) {
       wind: response.data.wind.speed,
     });
   }
+function search() {
+    const apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -30,10 +35,18 @@ export default function SearchContainer(props) {
   function updateCity(event) {
     setCity(event.target.value);
   }
-
-  function search() {
-    const apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchLocation);
+  }  
+  
+  function searchLocation(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
+    let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
+    let apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -64,6 +77,7 @@ export default function SearchContainer(props) {
                 className="locationButton"
                 title="finding location"
                 id="locatorButton"
+                onClick={getCurrentLocation}
               >
                 <img
                   src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/045/548/original/location.png?1662398089"
@@ -73,7 +87,7 @@ export default function SearchContainer(props) {
             </div>
           </div>
         </form>
-        <WeatherContainer data={weatherData} />
+        <WeatherInfo data={weatherData} />
         <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
