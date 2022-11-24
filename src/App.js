@@ -1,5 +1,5 @@
 import React from "react";
-import SearchContainer from "./SearchContainer";
+import Weather from "./Weather";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <SearchContainer defaultCity="Tampa" />
+        <Weather defaultCity="Tampa" />
         <footer>
           This project was coded by{" "}
           <a

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import WeatherContainer from "./WeatherContainer";
+import WeatherForecast from "./WeatherForecast"
 import axios from "axios";
-import "./App.css";
+import "./Weather.css";
 
 export default function SearchContainer(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -10,6 +11,7 @@ export default function SearchContainer(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
@@ -37,35 +39,42 @@ export default function SearchContainer(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="searchContainer">
-        <form onSubmit={handleSubmit} id="searchForm">
-          <input
-            type="search"
-            className="inputCity col-sm-8"
-            autoComplete="off"
-            placeholder="Search Your City"
-            id="searchInput"
-            onChange={updateCity}
-          />
-          <button type="submit" className="searchButton">
-            SEARCH
-          </button>
-          <span className="locator">
-            <button
-              type="submit"
-              className="locationButton"
-              title="finding location"
-              id="locatorButton"
-            >
-              <img
-                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/045/548/original/location.png?1662398089"
-                alt="finding location"
+      <div className="Weather">
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-7">
+              <input
+                type="search"
+                placeholder="Enter a city.."
+                className="form-control"
+                autoFocus="on"
+                onChange={updateCity}
               />
-            </button>
-          </span>
+            </div>
+            <div className="col-3">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
+            </div>
+            <div className="col-2">
+              <button
+                type="submit"
+                className="locationButton"
+                title="finding location"
+                id="locatorButton"
+              >
+                <img
+                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/045/548/original/location.png?1662398089"
+                  alt="finding location"
+                />
+              </button>
+            </div>
+          </div>
         </form>
-        <br/ >
         <WeatherContainer data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

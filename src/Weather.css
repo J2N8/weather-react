@@ -1,0 +1,126 @@
+.Weather { 
+  border: 1px solid #dadde1;
+  padding: 16px;
+  border-radius: 4px;
+  background: linear-gradient(111.5deg, rgb(228, 247, 255) 21.9%, rgb(255, 216, 194) 92.2%);
+}
+
+.cityName {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: inline-block;
+  font-size: 50px;
+  width: 100%;
+}
+
+.cityWeather {
+  padding-top: 16px;
+  margin-left: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.currentCityContainer .Row {
+  display: grid;
+  gap: 30px 0;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.currentTime,
+.weatherDescription {
+  font-size: 20px;
+}
+
+.currentTemp {
+  font-size: 100px;
+}
+
+.currentWeatherDetails {
+  font-size: 20px;
+  margin-top: 8px;
+  padding-top: 80px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.currentWeatherIcon {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.inputCity {
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 25px;
+  max-width: 80%;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.weatherTemperature {
+  cursor: default;
+  color: black;
+}
+
+.locationButton img {
+  width: 28px;
+}
+
+.locationButton,
+.searchButton {
+  background: #91d4f9;
+  border: 2px solid #91d4f9;
+  border-radius: 15px;
+  box-shadow: 0 0 18px rgb(0, 0, 0, 0.2);
+  color: black;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  margin: 1px 0 0 8px;
+  padding: 5px 8px;
+  transition: all 200ms ease-in-out;
+}
+
+.searchButton:hover {
+  color: black;
+  background: white;
+}
+
+.Units {
+  font-size: 20px;
+  position: relative;
+  top: -50px;
+}
+
+.Units a {
+  text-decoration: none;
+}
+
+.App {
+  margin: 60px auto;
+  max-width: 800px;
+}
+
+.weatherDescription {
+  text-transform: capitalize;
+}
+
+
+body {
+  background: white;
+  padding: 100px;
+}
+
+li {
+  list-style: none;
+}
+
+footer {
+  padding-top: 400px;
+  text-align: center;
+}
