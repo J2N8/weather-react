@@ -1,18 +1,20 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
-import "./WeatherForecast.css"
+import "./WeatherForecast.css";
 import axios from "axios";
 
+export default function WeatherForecast(props) {
+  function handleResponse(response) {
+    console.log(response.data);
+  }
 
-export default function WeatherForecast() {
-  function handleResponse(response)
-
-  const apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
+  let apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
   let longitude = props.coordinates.lon;
   let latitude = props.coordinates.lat;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&uunits=imperial`;
-  
-  axios.get(apiUrl).then(handleResponse)
+
+  axios.get(apiUrl).then(handleResponse);
+
   return (
     <div className="cityNextTempContainer" id="forecast">
       <div className="Row">
