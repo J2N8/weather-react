@@ -2,7 +2,7 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemp from "./WeatherTemp";
-import "./Weather.css";
+import "./Weather.css"
 
 export default function WeatherContainer(props) {
   return (
@@ -27,11 +27,7 @@ export default function WeatherContainer(props) {
             </div>
           </div>
           <div className="currentWeatherIcon">
-            <WeatherIcon
-              code={props.data.icon}
-              alt={props.data.description}
-              size={200}
-            />
+            <WeatherIcon code={props.data.icon} alt={props.data.description} size={200}/>
           </div>
           <div className="currentWeatherDetails">
             <ul>
