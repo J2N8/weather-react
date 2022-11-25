@@ -22,7 +22,7 @@ export default function SearchContainer(props) {
     });
   }
 function search() {
-    const apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
+    const apiKey = "da9262d37e70731f4340ddaf099c8e7e";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
@@ -39,8 +39,8 @@ function search() {
   function searchLocation(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    let apiKey = "32t884aec3aa2037cf7043fbb02o2d5d";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
+    let apiKey = "da9262d37e70731f4340ddaf099c8e7e";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
 
