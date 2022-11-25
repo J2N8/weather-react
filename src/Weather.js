@@ -40,8 +40,7 @@ function search() {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     let apiKey = "32t884aec3aa2037cf7043fbb02o2d5d";
-    let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
-    let apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
 
